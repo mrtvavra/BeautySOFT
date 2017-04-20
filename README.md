@@ -3,7 +3,7 @@ A simple online booking system called BeautySOFT for small (or start-up) Beauty 
 
 This web application is the part of the final university project module, which was based on project management during the software development.
 For this reason the application consists only simple functionality with very simple user interface form. 
-The system has been developed by using Java programming language and Model-View-Controller architecture pattern that facilitates the
+I have developed the application by using Java programming language and Model-View-Controller architecture pattern that facilitates the
 separation of the system. 
 The system has been implemented by using several technologies including Java EE, EJBs, JavaServer Faces web framework, Facelets, HTML, 
 relation-database management system (RDMS) Apache Derby, NetBeans IDE etc.
