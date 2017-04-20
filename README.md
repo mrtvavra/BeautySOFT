@@ -15,7 +15,7 @@ To register/connect the database with the application:
 Run NetBeans IDE ->
 Under Services, open the Databases node ->
 Right-click on Java DB and select properties ->
-In the Database Location field, enter the path to the copied folder, i.e. yourLocation/BeautySOFT/Code/BeautySOFT_database/.netbeans-derb
+In the Database Location field, enter the path to the copied folder, i.e. yourLocation/BeautySOFT/Code/BeautySOFT_database/.netbeans-derby
 
 The repository also consist the design of the system and the database.
 
