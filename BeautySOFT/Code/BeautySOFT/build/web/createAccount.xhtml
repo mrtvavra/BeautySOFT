@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" 
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:a = "http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Create account</title>
+    </h:head>
+    <h:body>
+        <h1>
+            Create a new account
+        </h1>
+        <h:form>
+            Please enter your new account name:  <h:inputText id="userName" value="#{userBean.userName}"/>
+            <br/>
+            <br/>
+            Please enter your new account email:  <h:inputText id="userEmail" value="#{userBean.userEmail}"/>
+            <br/>
+            <br/>
+            Pleae enter your new password <h:inputSecret id="userPassword" value="#{userBean.userPassword}"/>
+            <br/>
+            <br/>
+            <br/>
+            <h:commandButton value="Create a new account" action="#{salonCoordination.createAccount()}"/> or <h:commandButton value="Back to home page" action="#{salonCoordination.logOff()}"/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <h:outputLabel value="#{user.msg}"/>
+        </h:form>
+    </h:body>
+</html>
+

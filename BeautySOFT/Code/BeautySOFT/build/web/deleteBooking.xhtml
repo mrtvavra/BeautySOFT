@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" 
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:a = "http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Delete booking</title>
+    </h:head>
+    <h:body>
+        <h1>
+            Delete an existing booking
+        </h1>
+
+        <b>Select an existing booking that you want to delete:</b>
+        <br/>  
+        <h:form>
+            <p:dataTable id="radioDT" var="bookings" value="#{dbBookingsDataTable.bookingsForCustomer}" selection="#{dbBookingsDataTable.selectedBooking}" 
+                         rowKey="#{bookings.bookingId}">
+                <p:column selectionMode="single" style="width:16px;text-align:center"/>
+                <p:column headerText="Id">
+                    <h:outputText value="#{bookings.bookingId}" />
+                </p:column>
+                <p:column headerText="Date">
+                    <h:outputText value="#{bookings.date.date}.#{bookings.date.month+1}.#{bookings.date.year+1900}" />
+                </p:column>
+                <p:column headerText="Time">
+                    <h:outputText value="#{bookings.time}" />
+                </p:column>
+                <p:column headerText="Treatment description">
+                    <h:outputText value="#{dbBookingsDataTable.getTreatmentDes(bookings.treatId)}" />
+                </p:column>
+                <p:column headerText="Treatment price(£)">
+                    <h:outputText value="#{dbBookingsDataTable.getTreatmentPrice(bookings.treatId)}" />
+                </p:column>
+
+
+
+            </p:dataTable>
+
+            <br/>
+            <br/>
+            <br/>
+            <h:commandButton value="Delete booking" action="#{salonCoordination.deleteBooking(dbBookingsDataTable.selectedBooking.bookingId)}" /> or <h:commandButton value="Go back to home page" action="#{salonCoordination.backToHomePage()}"/>
+        </h:form>   
+    </h:body>
+</html>

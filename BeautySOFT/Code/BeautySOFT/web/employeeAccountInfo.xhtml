@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" 
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:a = "http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+
+    <h:head>
+        <title>Employee account information</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h1>
+                Login successful, welcome employee: #{userBean.empDatabaseName}
+            </h1>
+            <br/>
+            <br/>
+            <b>User name:</b> #{userBean.empDatabaseName}     
+            <br/>
+            <b>User email:</b> #{userBean.userEmail}    
+            <br/>
+            <b>User password:</b> #{userBean.userPassword}    
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <p:messages autoUpdate="true" />
+            <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="20">
+                <p:outputLabel for="date" value="Select a date for which you want to see the bookings: " />
+                <p:calendar id="date" value="#{bookingBean.date}" mode="inline" />
+            </h:panelGrid>
+            <br/>
+            <br/>
+            <br/>
+            <h:commandButton value="See treatments" action="employeeListOfTreatments.xhtml"/> or <h:commandButton value="Log off" action="#{salonCoordination.logOff()}"/>
+        </h:form>
+    </h:body>
+</html>

@@ -1,0 +1,20 @@
+Wed Apr 19 22:27:43 BST 2017 : Síovı server Apache Derby - 10.10.2.0 - (1582446): spuštìn a pøipraven pøijímat pøipojení na portu 1527 v {3} 
+----------------------------------------------------------------
+Wed Apr 19 22:28:44 BST 2017:
+ Zavádìní serveru Derby verze The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): instance a816c00e-015b-881d-27a3-00001cad7d09
+v adresáøi databáze C:\Users\martin\BeautySOFT\Code\BeautySOFT_DB\.netbeans-derby\BeautySOFT sun.misc.Launcher$AppClassLoader@5e2de80c 
+
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_73-b02
+user.dir=C:\Program Files\glassfish-4.1.1\javadb
+os.name=Windows 7
+os.arch=amd64
+os.version=6.1
+derby.system.home=C:\Users\martin\BeautySOFT\Code\BeautySOFT_DB\.netbeans-derby
+Byl spuštìn zavadìè tøídy databáze - derby.database.classpath=''
+----------------------------------------------------------------
+Wed Apr 19 22:28:58 BST 2017: Shutting down Derby engine
+----------------------------------------------------------------
+Wed Apr 19 22:28:58 BST 2017:
+Vypínání instance a816c00e-015b-881d-27a3-00001cad7d09
+----------------------------------------------------------------

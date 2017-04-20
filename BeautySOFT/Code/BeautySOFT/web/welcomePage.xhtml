@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" 
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:a = "http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+
+    <h:head>
+        <title>
+            BeautySOFT Input form
+        </title>
+    </h:head>
+    <h:body>
+        <h1>BeautySOFT booking system</h1>
+        <h3>
+            Welcome user, enter your login email and password please:
+        </h3>
+        <h:form>
+            <h3>User email:</h3>    <p:inputText id="userName" value="#{userBean.userEmail}" title="User email" tabindex="1" required="true" 
+                                                 requiredMessage=" The user name is required!"/>
+            <h:message id="m1" for="userName" style="color:red"/> <p> </p>
+            <h3>
+                Password: 
+            </h3>
+            <p:password id="userPassword" value="#{userBean.userPassword}" title="User password" tabindex="1" required="true" 
+                        requiredMessage=" The user password is required!"/>
+
+            <h:message id="m2" for="userPassword" style="color:red"/> <p> </p>
+            <br/>
+            <br/>
+            <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+                <p:outputLabel for="typeOfUser" value="Select type of user: " />
+                <p:selectOneMenu id="typeOfUser" value="#{userBean.typeOfUser}" style="width:125px">
+                    <f:selectItem itemLabel="Customer" itemValue="customer" />
+                    <f:selectItem itemLabel="Employee" itemValue="employee" />
+                </p:selectOneMenu>
+            </h:panelGrid>
+            <br/>
+            <p:commandButton value="Log on existing user" id="nonAjax" actionListener="#{salonCoordination.logIn()}" ajax="false" /> <b>  or  </b>
+            <p:button outcome="createAccount.xhtml" value="Create a new account">
+            </p:button>
+            <br/>
+            <br/>
+            <br/>
+            <h2><h:outputLabel value="#{userBean.returnMsg}"/></h2>
+        </h:form>
+    </h:body>
+</html>

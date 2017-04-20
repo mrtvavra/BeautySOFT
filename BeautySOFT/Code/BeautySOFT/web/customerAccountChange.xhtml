@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" 
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:a = "http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+
+    <h:head>
+        <title>Customer change account information</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h1>
+                The customer: #{userBean.custDatabaseName}
+            </h1>
+
+            <br/>
+            <br/>
+            <b>User name:</b> #{userBean.custDatabaseName}     
+            <br/>
+            <b>User email:</b> #{userBean.userEmail}    
+            <br/>
+            <b>User password:</b> #{userBean.userPassword}    
+            <br/>
+            <br/>
+            <br/>
+            
+
+
+            <h3> New user name: </h3> 
+
+            <p:inputText id="userName" value="#{userBean.userNameChange}" title="User name" tabindex="1" required="true" 
+                         requiredMessage=" The user name is required!"/>
+            
+            <h:message id="m1" for="userName" style="color:red"/> <p> </p>
+             
+            
+            <h3> New user email: </h3> 
+
+             <p:inputText id="userEmail" value="#{userBean.userEmailChange}" title="User email" tabindex="1" required="true" 
+                         requiredMessage=" The user email is required!"/>
+            
+            <h:message id="m2" for="userName" style="color:red"/> <p> </p>
+
+
+            <h3>
+                New password: 
+            </h3>
+            <p:password id="userPassword" value="#{userBean.userPasswordChange}" title="User password " tabindex="1" required="true" 
+                       requiredMessage=" The user password is required!" />
+
+           <h:message id="m3" for="userPassword" style="color:red"/> <p> </p>
+
+
+
+            <h:commandButton value="Change account information" action="#{salonCoordination.changeAccount()}"/> or <h:commandButton value="Delete account" action="#{salonCoordination.deleteAccount()}"/>
+            
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <h:commandButton value="Go back to home page" action="#{salonCoordination.backToHomePage()}"/>
+        </h:form>
+    </h:body>
+</html>

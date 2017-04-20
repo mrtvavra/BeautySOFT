@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" 
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:a = "http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+
+    <h:head>
+        <title>Employees list of treatments</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <br/>
+            <br/>
+            <b>
+                List of booked treatments for date: #{bookingBean.date.date}.#{bookingBean.date.month+1}.#{bookingBean.date.year+1900}
+            </b> 
+            <p:dataTable var="bookings" value="#{dbBookingsDataTable.bookingsForDate}">
+                <p:column headerText="Date">
+                    <h:outputText value="#{bookings.date.date}.#{bookings.date.month+1}.#{bookings.date.year+1900}" />
+                </p:column>
+                <p:column headerText="Time">
+                    <h:outputText value="#{bookings.time}" />
+                </p:column>
+                <p:column headerText="Customer name">
+                    <h:outputText value="#{dbBookingsDataTable.getNameForBookingByID(bookings.custId)}" />
+                </p:column>
+                <p:column headerText="Customer email">
+                    <h:outputText value="#{dbBookingsDataTable.getEmailForCust(bookings.custId)}" />
+                </p:column>
+                 <p:column headerText="Treatment description">
+                    <h:outputText value="#{dbBookingsDataTable.getTreatmentDes(bookings.treatId)}" />
+                </p:column>
+               
+            </p:dataTable>
+            <br/>
+            <br/>
+            <br/>
+            <h:commandButton value="Back to home page" action="employeeAccountInfo.xhtml"/>
+        </h:form>
+    </h:body>
+</html>

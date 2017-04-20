@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" 
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:a = "http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>New booking</title>
+    </h:head>
+    <h:body>
+        <h1>
+            Book a new treatment
+        </h1>
+        <b>
+            The description of all treatments and their prices:
+        </b>
+        <p:dataTable var="treatments" value="#{dbTreatmentsDataTable.treatments}">
+            <p:column headerText="Description">
+                <h:outputText value="#{treatments.treatDes}" />
+            </p:column>
+            <p:column headerText="Price(£)">
+                <h:outputText value="#{treatments.price}" />
+            </p:column>
+        </p:dataTable>
+        <h:form>
+            <p:messages autoUpdate="true" />
+            <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="20">
+                <p:outputLabel for="treatId" value="Select treatment to book:" />
+                <p:selectOneMenu id="treatId" value="#{treatmentBean.treatId}" style="width:300px">
+                    <f:selectItem itemLabel="The manicure pheraphy" itemValue="1" />
+                    <f:selectItem itemLabel="The pedicure pheraphy" itemValue="2" />
+                    <f:selectItem itemLabel="The back massage" itemValue="3" />
+                    <f:selectItem itemLabel="The face massage" itemValue="4" />
+                    <f:selectItem itemLabel="Full Body Massage" itemValue="5" />
+                    <f:selectItem itemLabel="Hot Stone Massage Therapy – Back and Shoulders" itemValue="6" />
+                    <f:selectItem itemLabel="Hot Stone Massage Therapy – Full Body" itemValue="7" />
+                    <f:selectItem itemLabel="Anti Ageing Power Treatment" itemValue="8" />
+                    <f:selectItem itemLabel="Dermalogica Teenage Facial" itemValue="9" />
+                    <f:selectItem itemLabel="Acne Treatment using Ellipse I2PL" itemValue="10" />
+                </p:selectOneMenu>
+            </h:panelGrid>
+            <p:messages autoUpdate="true" />
+            <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="20">
+                <p:outputLabel for="date" value="Select date for your booking: " />
+                <p:calendar id="date" value="#{bookingBean.date}" mode="inline" />
+            </h:panelGrid>
+            <p:messages autoUpdate="true" />
+            <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="20">
+                <p:outputLabel for="time" value="Select time for your booking: " />
+                <p:selectOneMenu id="time" value="#{bookingBean.time}" style="width:300px">
+                    <f:selectItem itemLabel="8:00" itemValue="8:00" />
+                    <f:selectItem itemLabel="9:00" itemValue="9:00" />
+                    <f:selectItem itemLabel="10:00" itemValue="10:00" />
+                    <f:selectItem itemLabel="11:00" itemValue="11:00" />
+                    <f:selectItem itemLabel="12:00" itemValue="12:00" />
+                    <f:selectItem itemLabel="13:00" itemValue="13:00" />
+                    <f:selectItem itemLabel="14:00" itemValue="14:00" />
+                    <f:selectItem itemLabel="15:00" itemValue="15:00" />
+                    <f:selectItem itemLabel="16:00" itemValue="16:00" />
+                    <f:selectItem itemLabel="17:00" itemValue="17:00" />
+                </p:selectOneMenu>
+            </h:panelGrid>
+            <h:commandButton value="Create a new booking" action="#{salonCoordination.makeBooking()}"/> or <h:commandButton value="Go back to home page" action="#{salonCoordination.backToHomePage()}"/>
+        </h:form>   
+    </h:body>
+</html>
+

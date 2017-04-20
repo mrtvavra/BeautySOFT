@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" 
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:a = "http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+
+    <h:head>
+        <title>Customer account information</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h1>
+                Login successful, welcome customer: #{userBean.custDatabaseName}
+            </h1>
+            <br/>
+            <br/>
+            <b>User name:</b> #{userBean.custDatabaseName}     
+            <br/>
+            <b>User email:</b> #{userBean.userEmail}    
+            <br/>
+            <b>User password:</b> #{userBean.userPassword}    
+            <br/>
+            <br/>
+            <h:commandButton value="Change account details" action="customerAccountChange.xhtml"/>
+            <br/>
+            <br/>
+            <b>The table of all your bookings:</b>
+            <br/>  
+            <p:dataTable var="bookings" value="#{dbBookingsDataTable.bookingsForCustomer}">
+                <p:column headerText="Date">
+                    <h:outputText value="#{bookings.date.date}.#{bookings.date.month+1}.#{bookings.date.year+1900}" />
+                </p:column>
+                <p:column headerText="Time">
+                    <h:outputText value="#{bookings.time}" />
+                </p:column>
+                <p:column headerText="Treatment description">
+                    <h:outputText value="#{dbBookingsDataTable.getTreatmentDes(bookings.treatId)}" />
+                </p:column>
+                <p:column headerText="Treatment price(£)">
+                    <h:outputText value="#{dbBookingsDataTable.getTreatmentPrice(bookings.treatId)}" />
+                </p:column>
+            </p:dataTable>
+            <br/>
+
+            <h2>#{bookingBean.successfulBooking} </h2>
+            <br/>
+
+            <h:commandButton value="Book a new treatment" action="bookNewTreatment.xhtml"/> or <h:commandButton value="Delete existing booking" action="deleteBooking.xhtml"/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <h:commandButton value="Log off" action="#{salonCoordination.logOff()}"/>
+        </h:form>
+    </h:body>
+</html>
+
